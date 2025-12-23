@@ -65,7 +65,11 @@ function init(self)
 	anim1(gui.get_node("quit_shadow"), d)
 	anim1(gui.get_node("quit_button"), d)
 
-	d = 0.1
-	anim1(gui.get_node("background"), d)
+	local from_color = gui.get_color(gui.get_node("background"))
+	local to_color = gui.get_color(gui.get_node("background"))
+	from_color.w = 0
+	gui.set_color(gui.get_node("background"), from_color)
+	gui.animate(gui.get_node("background"), gui.PROP_COLOR, to_color, gui.EASING_IN, 0.4, d)
+	anim5(self, gui.get_node("background"))
 	
 end
